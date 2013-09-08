@@ -19,8 +19,9 @@ analogWrite 5 0
 analogWrite 6 20
 digitalWrite 3 HIGH
 
-How to add a function:
-1) create a function
+How to create a custom function:
+1) create a function always return void e no parameters. if you want return parameters use orbit_pushstack(char_value) or orbit_pushinteger(int_value)
+
 void examplefunction()
 {
 	//if you call: examplefunction 13 HIGH
