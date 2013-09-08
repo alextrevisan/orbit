@@ -27,7 +27,6 @@ void examplefunction()
 	//if you call: examplefunction 13 HIGH
 	int mode = orbit_popstack(); //get the "HIGH" variable
 	int pin = orbit_popstack(); //get the "13" variable
-	
 	digitalWrite(pin,mode);
 }
 
@@ -35,6 +34,6 @@ void examplefunction()
 
 orbit_registerfunction("examplefunction",runXtimes);
 
-3) call from script
-	examplefunction 13 HIGH
+3) call from script:
+examplefunction 13 HIGH
    
