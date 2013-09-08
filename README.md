@@ -33,7 +33,7 @@ void examplefunction()
 ```
 2) register the function before you call orbit_run()
 ```
-orbit_registerfunction("examplefunction",runXtimes);
+orbit_registerfunction("examplefunction",examplefunction);
 ```
 3) call from script:
 ```
