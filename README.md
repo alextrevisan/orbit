@@ -1,6 +1,5 @@
-orbit
+orbit - a simple Arduino script.
 =====
-
 How about send commands via Serial or loading a script from SD card to execute on Arduino?
 This is a simple script command to execute operations on Arduino via script.
 
