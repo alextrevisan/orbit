@@ -39,4 +39,12 @@ orbit_registerfunction("examplefunction",runXtimes);
 ```
 examplefunction 13 HIGH
 ```
-   
+
+- [x] execute functions
+- [x] store variables
+- [x] read variables
+- [ ] perform operations
+- [ ] if keyword
+- [ ] for keyword
+- [ ] while keyword
+
