@@ -38,7 +38,11 @@ orbit_registerfunction("examplefunction",examplefunction);
 ```
 examplefunction 13 HIGH
 ```
-
+Variables:
+```
+var value = analogRead 3
+analogWrite 5 value
+```
 - [x] execute functions
 - [x] store variables
 - [x] read variables
