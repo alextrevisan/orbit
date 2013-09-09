@@ -71,7 +71,7 @@ void orbit(const char* script)
     orbit_registervar("INPUT",INPUT);
     orbit_registervar("OUTPUT",OUTPUT);
 
-    orbit_script = new char[strlen(script)];
+    orbit_script = new char[strlen(script)+1];
     strcpy(orbit_script,script);
     orbit_token = strtok (orbit_script," ;");
 }
@@ -80,7 +80,6 @@ void orbit_registerfunction(const char* name,void(*func)(void))
 {
     __funclist__* node =  new __funclist__;
     node->name = new char[strlen(name)+1];
-    memset(node->name,'\0',strlen(name)+1);
     strcpy(node->name,name);
     node->func = func;
     node->next = NULL;
@@ -101,14 +100,14 @@ void orbit_registervar(const char* name,const char* value)
         if(!strcmp(name,orbit_var[x].name))
         {
             delete[] orbit_var[x].value;
-            orbit_var[x].value = new char[strlen(value)];
+            orbit_var[x].value = new char[strlen(value)+1];
             strcpy(orbit_var[x].value,value);
             return;
         }
     }
-    orbit_var[orbit_currentvar].name = new char[strlen(name)];
+    orbit_var[orbit_currentvar].name = new char[strlen(name)+1];
     strcpy(orbit_var[orbit_currentvar].name,name);
-    orbit_var[orbit_currentvar].value = new char[strlen(value)];
+    orbit_var[orbit_currentvar].value = new char[strlen(value)+1];
     strcpy(orbit_var[orbit_currentvar].value,value);
     orbit_currentvar++;
 }
@@ -119,14 +118,14 @@ void orbit_registervar(const char* name,int value)
         if(!strcmp(name,orbit_var[x].name))
         {
             delete[] orbit_var[x].value;
-            orbit_var[x].value = new char[strlen("9999")];
+            orbit_var[x].value = new char[4];
             itoa(value,orbit_var[x].value,10);
             return;
         }
     }
-    orbit_var[orbit_currentvar].name = new char[strlen(name)];
+    orbit_var[orbit_currentvar].name = new char[strlen(name)+1];
     strcpy(orbit_var[orbit_currentvar].name,name);
-    orbit_var[orbit_currentvar].value = new char[strlen("9999")];
+    orbit_var[orbit_currentvar].value = new char[4];
     itoa(value,orbit_var[orbit_currentvar].value,10);
     orbit_currentvar++;
 }
@@ -198,7 +197,7 @@ char* orbit_popstack()
 {
     int index = orbit_currentstack-1;
 
-    char* tmp = new char[strlen(orbit_stack[index])];
+    char* tmp = new char[strlen(orbit_stack[index])+1];
     strcpy(tmp,orbit_stack[index]);
     delete[] orbit_stack[index];
 
@@ -209,7 +208,7 @@ void orbit_pushstack(const char* value)
 {
     if(orbit_currentstack>MAXSTACK)
         Serial.write("error: stack overflow");
-    orbit_stack[orbit_currentstack] = new char[strlen(value)];
+    orbit_stack[orbit_currentstack] = new char[strlen(value)+1];
     strcpy(orbit_stack[orbit_currentstack],value);
     orbit_currentstack++;
 }
