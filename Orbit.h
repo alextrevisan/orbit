@@ -231,15 +231,13 @@ bool orbit_isvar(const char* token)
 {
     if(token==NULL)
         return false;
-    if(!strcmp(token,"var"))
-        return true;
-    return false;
+    return(!strcmp(token,"var"));
 }
 bool orbit_isassign(const char* token)
 {
-    if(!strcmp(token,"="))
-        return true;
-    return false;
+    if(token==NULL)
+        return false;
+    return(!strcmp(token,"="));
 }
 
 void orbit_execute(const char* token)
